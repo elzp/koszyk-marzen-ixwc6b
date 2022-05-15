@@ -39,10 +39,11 @@ let lengthToCheck = itemsLength;
 
 deleteButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    console.log(index);
     total.innerHTML = `${
-      Number(total.innerHTML.match(/\d+/g)) - pricesAsNumbers[index]
+      Number(total.innerHTML.match(/\d+/g)) -
+      pricesAsNumbers[index] * quantity[index]
     } zł`;
+    quantity[index] = 0;
 
     items[index].style.display = 'none';
     lengthToCheck -= 1;
